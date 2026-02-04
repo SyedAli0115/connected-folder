@@ -23,11 +23,5 @@ pipeline {
                 '''
             }
         }
-
-        stage('Show content') {
-            steps {
-                sh 'cat hello.txt'
-            }
-        }
     }
 }
