@@ -8,6 +8,22 @@ pipeline {
             }
         }
 
+        stage('Build Folder') {
+            steps {
+                echo "Building project..."
+                sh 'ls -la'
+            }
+        }
+
+        stage('Deploy Folder (Local)') {
+            steps {
+                sh '''
+                  mkdir -p /tmp/jenkins-deploy
+                  cp -r * /tmp/jenkins-deploy
+                '''
+            }
+        }
+
         stage('EC2 Setup via Terraform') {
         steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',credentialsId: 'aws-jenkins']]) {
