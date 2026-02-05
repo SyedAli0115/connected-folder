@@ -32,7 +32,7 @@ pipeline {
                 scp -o StrictHostKeyChecking=no \
                 -i ~/.ssh/jenkins \
                 index.html \
-                ec2-user@${ip}:/var/www/html/index.html
+                cloud_user@${ip}:/var/www/html/index.html
             """
             }
         }
